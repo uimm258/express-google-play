@@ -12,10 +12,10 @@ app.use(morgan('common'));
 app.get('/apps', (req, res) => {
     const{search = ''} = req.query;
 
-    let data = playData.filter(apps => apps.App.includes(search.toLowerCase()));
+    let result = playData.filter(data => data.App.toLowerCase().includes(search));
 
 
-    res.json(data);
+    res.json(result);
 })
 
 app.listen(8000, () => {
